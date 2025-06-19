@@ -1,3 +1,6 @@
+import Model.CalculatorModel;
+import View.CalculatorView;
+
 public class CalculatorController {
     private CalculatorModel model;
     private CalculatorView view;
