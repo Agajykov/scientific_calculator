@@ -1,5 +1,11 @@
 package View;
 import javax.swing.*;
+
+import View.Panels.InputPanel.InputPanel;
+import View.Panels.KeypadPanel.KeypadPanel;
+import View.Panels.MemoryPanel.MemoryJPanel;
+import View.Panels.ScientificPanel.ScientificPanel;
+
 import java.awt.*;
 import java.awt.event.ActionListener;
 
@@ -9,45 +15,23 @@ public class CalculatorView {
     private JButton addButton, sinButton;
 
     public CalculatorView() {
-        frame = new JFrame("Scientific Calculator");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(400, 300);
-        frame.setLayout(new BorderLayout());
+    
+        JFrame mainFrame = new JFrame("Scientific Calculator");
+		mainFrame.setLayout(new BorderLayout());
 
-        // Display
-        display = new JTextField();
-        frame.add(display, BorderLayout.NORTH);
+		KeypadPanel keypadJPanel = new KeypadPanel();
+		InputPanel inputJPanel = new InputPanel();
+		ScientificPanel scientificJPanel = new ScientificPanel();
+		MemoryJPanel memoryJPanel = new MemoryJPanel();
 
-        // Panel for buttons
-        JPanel panel = new JPanel();
-        panel.setLayout(new GridLayout(2, 1));
-
-        // Example buttons
-        addButton = new JButton("+");
-        sinButton = new JButton("sin");
-
-        panel.add(addButton);
-        panel.add(sinButton);
-
-        frame.add(panel, BorderLayout.CENTER);
-
-        frame.setVisible(true);
+        mainFrame.add(inputJPanel, BorderLayout.NORTH);
+        mainFrame.add(scientificJPanel,BorderLayout.WEST);
+        mainFrame.add(keypadJPanel, BorderLayout.CENTER);
+        mainFrame.add(memoryJPanel, BorderLayout.EAST);
+    
+        
+        mainFrame.setSize(300,300);  
+        mainFrame.setVisible(true);  
     }
 
-    public String getUserInput() {
-        return display.getText();
-    }
-
-    public void setDisplayValue(String value) {
-        display.setText(value);
-    }
-
-    // Allow controller to hook into buttons
-    public void addAddButtonListener(ActionListener listener) {
-        addButton.addActionListener(listener);
-    }
-
-    public void addSinButtonListener(ActionListener listener) {
-        sinButton.addActionListener(listener);
-    }
 }

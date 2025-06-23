@@ -1,11 +1,11 @@
-import Model.CalculatorModel;
+import Model.MathOperationModel;
 import View.CalculatorView;
 
 public class CalculatorController {
-    private CalculatorModel model;
+    private MathOperationModel model;
     private CalculatorView view;
 
-    public CalculatorController(CalculatorModel model, CalculatorView view) {
+    public CalculatorController(MathOperationModel model, CalculatorView view) {
         this.model = model;
         this.view = view;
 
