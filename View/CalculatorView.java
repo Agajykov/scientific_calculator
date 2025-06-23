@@ -1,10 +1,10 @@
 package View;
 import javax.swing.*;
 
-import View.Panels.InputPanel.InputPanel;
-import View.Panels.KeypadPanel.KeypadPanel;
+import View.Panels.InputPanel.InputJPanel;
+import View.Panels.KeypadPanel.KeypadJPanel;
 import View.Panels.MemoryPanel.MemoryJPanel;
-import View.Panels.ScientificPanel.ScientificPanel;
+import View.Panels.ScientificPanel.ScientificJPanel;
 
 import java.awt.*;
 import java.awt.event.ActionListener;
@@ -19,9 +19,9 @@ public class CalculatorView {
         JFrame mainFrame = new JFrame("Scientific Calculator");
 		mainFrame.setLayout(new BorderLayout());
 
-		KeypadPanel keypadJPanel = new KeypadPanel();
-		InputPanel inputJPanel = new InputPanel();
-		ScientificPanel scientificJPanel = new ScientificPanel();
+		KeypadJPanel keypadJPanel = new KeypadJPanel();
+		InputJPanel inputJPanel = new InputJPanel();
+		ScientificJPanel scientificJPanel = new ScientificJPanel();
 		MemoryJPanel memoryJPanel = new MemoryJPanel();
 
         mainFrame.add(inputJPanel, BorderLayout.NORTH);
@@ -29,7 +29,6 @@ public class CalculatorView {
         mainFrame.add(keypadJPanel, BorderLayout.CENTER);
         mainFrame.add(memoryJPanel, BorderLayout.EAST);
     
-        
         mainFrame.setSize(300,300);  
         mainFrame.setVisible(true);  
     }
