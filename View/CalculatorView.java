@@ -1,22 +1,22 @@
 package View;
-import javax.swing.*;
+import java.awt.BorderLayout;
+
+import javax.swing.JFrame;
 
 import View.Panels.InputPanel.InputJPanel;
 import View.Panels.KeypadPanel.KeypadJPanel;
 import View.Panels.MemoryPanel.MemoryJPanel;
 import View.Panels.ScientificPanel.ScientificJPanel;
 
-import java.awt.*;
-import java.awt.event.ActionListener;
-
 public class CalculatorView {
-    private JFrame frame;
-    private JTextField display;
-    private JButton addButton, sinButton;
 
-    public CalculatorView() {
-    
-        JFrame mainFrame = new JFrame("Scientific Calculator");
+     public CalculatorView() {
+		prepareGUI();
+    }
+
+	private void prepareGUI() {
+
+		JFrame mainFrame = new JFrame("Scientific Calculator");
 		mainFrame.setLayout(new BorderLayout());
 
 		KeypadJPanel keypadJPanel = new KeypadJPanel();
@@ -29,8 +29,8 @@ public class CalculatorView {
         mainFrame.add(keypadJPanel, BorderLayout.CENTER);
         mainFrame.add(memoryJPanel, BorderLayout.EAST);
     
-        mainFrame.setSize(300,300);  
+        mainFrame.setSize(700, 600); 
+		mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         mainFrame.setVisible(true);  
-    }
-
+	}
 }

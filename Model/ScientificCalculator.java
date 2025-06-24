@@ -1,6 +1,5 @@
 package Model;
 
-import java.lang.Math;
 import Exceptions.DivingToZeroException;
 
 public class ScientificCalculator extends MathOperationModel {
@@ -66,7 +65,7 @@ public class ScientificCalculator extends MathOperationModel {
             String lastError = "Error: Logarithm of non-positive number";
             throw new IllegalArgumentException(lastError);
         }
-        return Math.log10(value);
+        this.logResult=  Math.log10(value);
 	}
 
 	@Override
