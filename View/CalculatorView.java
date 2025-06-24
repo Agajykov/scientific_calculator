@@ -29,7 +29,7 @@ public class CalculatorView {
         mainFrame.add(keypadJPanel, BorderLayout.CENTER);
         mainFrame.add(memoryJPanel, BorderLayout.EAST);
     
-        mainFrame.setSize(700, 600); 
+        mainFrame.setSize(800, 600); 
 		mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         mainFrame.setVisible(true);  
 	}

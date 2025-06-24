@@ -17,10 +17,6 @@ public class KeypadJPanel extends JPanel {
 		this.setLayout(new GridLayout(0, 4));
 
 		JButton
-			mc = new JButton("mc"),
-			mPlus = new JButton("m+"),
-			mMinus = new JButton("m-"),
-			mRemove = new JButton("mr"),
 			clear = new JButton("C"),
 			plusButton = new JButton("+"),
 			negativeSignButton = new JButton("-"),
@@ -47,10 +43,7 @@ public class KeypadJPanel extends JPanel {
 		//check the history icon
 		
 	
-		this.add(mc);
-		this.add(mPlus);
-		this.add(mMinus);
-		this.add(mRemove);
+		
 		this.add(plusButton); 
 		this.add(negativeSignButton);
 		this.add(divisionButton);
