@@ -1,5 +1,4 @@
 package Model;
-
 import java.util.*;
 
 public class Calculator {
@@ -10,9 +9,23 @@ public class Calculator {
         operations.put("-", new SubtractOperation());
         operations.put("*", new MultiplyOperation());
         operations.put("/", new DivideOperation());
+        operations.put("^", new PowerOperation());
+        operations.put("!", new FactorialOperation());
+        operations.put("√", new SquareRootOperation());
+
         operations.put("sin", new SinOperation());
         operations.put("cos", new CosOperation());
         operations.put("tan", new TanOperation());
+        operations.put("cotan", new CotanOperation());
+        operations.put("arcsin", new ArcsinOperation());
+        operations.put("arccos", new ArccosOperation());
+        operations.put("arctan", new ArctanOperation());
+        operations.put("arccotan", new ArccotanOperation());
+
+        operations.put("log", new LogOperation());
+        operations.put("ln", new LnOperation());
+        operations.put("e^x", new ExpOperation());
+        operations.put("10^x", new ExpTenOperation());
     }
 
     public static double calculate(String expression) {
@@ -29,22 +42,22 @@ public class Calculator {
             char c = expr.charAt(i);
 
             if (Character.isLetter(c)) {
-                while (i < expr.length() && Character.isLetter(expr.charAt(i))) {
+                buffer.setLength(0);
+                while (i < expr.length() && (Character.isLetter(expr.charAt(i)) || expr.charAt(i) == '^' )) {
                     buffer.append(expr.charAt(i));
                     i++;
                 }
                 tokens.add(buffer.toString());
-                buffer.setLength(0);
                 i--;
             } else if (Character.isDigit(c) || c == '.') {
+                buffer.setLength(0);
                 while (i < expr.length() && (Character.isDigit(expr.charAt(i)) || expr.charAt(i) == '.')) {
                     buffer.append(expr.charAt(i));
                     i++;
                 }
                 tokens.add(buffer.toString());
-                buffer.setLength(0);
                 i--;
-            } else if ("+-*/()".indexOf(c) >= 0) {
+            } else if ("+-*/()^!√".indexOf(c) >= 0) {
                 tokens.add(String.valueOf(c));
             } else if (Character.isWhitespace(c)) {
                 continue;
@@ -61,9 +74,21 @@ public class Calculator {
         Stack<String> stack = new Stack<>();
 
         Map<String, Integer> precedence = new HashMap<>();
-        precedence.put("sin", 3);
-        precedence.put("cos", 3);
-        precedence.put("tan", 3);
+        precedence.put("!", 5); // postfix
+        precedence.put("√", 4); // unary
+        precedence.put("sin", 4);
+        precedence.put("cos", 4);
+        precedence.put("tan", 4);
+        precedence.put("cotan", 4);
+        precedence.put("arcsin", 4);
+        precedence.put("arccos", 4);
+        precedence.put("arctan", 4);
+        precedence.put("arccotan", 4);
+        precedence.put("log", 4);
+        precedence.put("ln", 4);
+        precedence.put("e^x", 4);
+        precedence.put("10^x", 4);
+        precedence.put("^", 3);
         precedence.put("*", 2);
         precedence.put("/", 2);
         precedence.put("+", 1);

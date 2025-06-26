@@ -1,12 +1,13 @@
 
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
 
 import javax.swing.JButton;
-import javax.swing.JLabel;
 
 import Model.Calculator;
+import Model.History;
+import Model.HistoryModel;
 import View.Panels.InputPanel.InputJPanel;
 import View.Panels.KeypadPanel.KeypadJPanel;
 import View.Panels.MemoryPanel.MemoryJPanel;
@@ -14,17 +15,14 @@ import View.Panels.ScientificPanel.ScientificJPanel;
 
 public class CalculatorController {
     
-	
     private InputJPanel inputPanel;
 	private KeypadJPanel keypadJPanel;
 	private ScientificJPanel scientificJPanel;
 	private MemoryJPanel memoryJPanel;
 
-
     public CalculatorController(
 		//Model
 	
-        
 		//View
 		InputJPanel inputPanel, 
         KeypadJPanel keypadPanel,
@@ -81,6 +79,8 @@ public class CalculatorController {
 			}
 		});
 
+
+		HistoryModel historyModel = new HistoryModel();
 		// Collect Result
 		keypadJPanel.getButtonEqual().addActionListener(new ActionListener(){
 			@Override
@@ -89,9 +89,25 @@ public class CalculatorController {
 				double resultOfCalculation = Calculator.calculate(mathExpression);
 
 				//Implement history where history object takes MathExpression and result
-
-				inputPanel.add(new JLabel(mathExpression));
+				historyModel.addHistory(mathExpression, resultOfCalculation);
+			
+				// inputPanel.add(new JLabel(mathExpression));
 				inputPanel.getResultField().setText(String.valueOf(resultOfCalculation));
+			}
+		});
+
+		keypadJPanel.getHistoryButton().addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+				List<History> listOfHistory = historyModel.getHistoryList();
+				for (History history : listOfHistory) {
+					final String expression = history.getMathExpressionPassed();
+					final String result = String.valueOf(history.getResultPassed());
+					// inputPanel.getHistoryfield().setText(expression + "=" + result);
+					inputPanel.appendToHistory(expression, result);
+				}
+
 			}
 		});
 		

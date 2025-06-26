@@ -36,8 +36,8 @@ public class ScientificJPanel extends JPanel {
 		//this.setPreferredSize(new Dimension(200, 500));
 
 		this.sinButton = new JButton("sin");
-		this.cosButton = new JButton("cosin");
-		this.tanButton = new JButton("tang");
+		this.cosButton = new JButton("cos");
+		this.tanButton = new JButton("tan");
 		this.contanButton = new JButton("cotan");
 		this.arcsinButton = new JButton("arcsin");
 		this.arcCosButton = new JButton("arccos");
@@ -47,8 +47,8 @@ public class ScientificJPanel extends JPanel {
 		this.lnButton = new JButton("Ln");
 		this.expButton = new JButton("e^x");
 		this.expTenButton = new JButton("10^x");
-		this.squareRootButton = new JButton("√x");
-		this.powerButton = new JButton("x^y");
+		this.squareRootButton = new JButton("√");
+		this.powerButton = new JButton("^");
 		this.factorialButton = new JButton("n!");
 
 		storeAllScientificButtons(
