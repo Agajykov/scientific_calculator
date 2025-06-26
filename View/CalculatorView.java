@@ -10,6 +10,11 @@ import View.Panels.ScientificPanel.ScientificJPanel;
 
 public class CalculatorView {
 
+	private KeypadJPanel keypadJPanel;
+	private InputJPanel inputJPanel;
+	private ScientificJPanel scientificJPanel;
+	private MemoryJPanel memoryJPanel;
+
      public CalculatorView() {
 		prepareGUI();
     }
@@ -19,10 +24,10 @@ public class CalculatorView {
 		JFrame mainFrame = new JFrame("Scientific Calculator");
 		mainFrame.setLayout(new BorderLayout());
 
-		KeypadJPanel keypadJPanel = new KeypadJPanel();
-		InputJPanel inputJPanel = new InputJPanel();
-		ScientificJPanel scientificJPanel = new ScientificJPanel();
-		MemoryJPanel memoryJPanel = new MemoryJPanel();
+		keypadJPanel = new KeypadJPanel();
+		inputJPanel = new InputJPanel();
+		scientificJPanel = new ScientificJPanel();
+		memoryJPanel = new MemoryJPanel();
 
         mainFrame.add(inputJPanel, BorderLayout.NORTH);
         mainFrame.add(scientificJPanel,BorderLayout.WEST);
@@ -33,4 +38,22 @@ public class CalculatorView {
 		mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         mainFrame.setVisible(true);  
 	}
+
+	public KeypadJPanel getKeypadJPanel() {
+		return keypadJPanel;
+	}
+
+	public InputJPanel getInputJPanel() {
+		return inputJPanel;
+	}
+
+	public ScientificJPanel getScientificJPanel() {
+		return scientificJPanel;
+	}
+
+	public MemoryJPanel getMemoryJPanel() {
+		return memoryJPanel;
+	}
+
+
 }

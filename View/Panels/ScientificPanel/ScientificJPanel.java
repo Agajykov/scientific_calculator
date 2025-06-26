@@ -1,34 +1,73 @@
 package View.Panels.ScientificPanel;
 
-import java.awt.Dimension;
 import java.awt.GridLayout;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
 public class ScientificJPanel extends JPanel {
 
+	private JButton
+		sinButton,
+		cosButton, 
+		tanButton,
+		contanButton,
+		arcsinButton,
+		arcCosButton,
+		arcTanButton,
+		arcCotanButton,
+		logButton,
+		lnButton,
+		expButton,
+		expTenButton,
+		squareRootButton,
+		powerButton,
+		factorialButton;
+		
+	List<JButton> availableScientifcButtons = new ArrayList<>();
+
+
 	public ScientificJPanel() {
 
 		this.setLayout(new GridLayout(0, 3));
 		//this.setPreferredSize(new Dimension(200, 500));
 
-		JButton
-			sinButton = new JButton("sin"),
-			cosButton = new JButton("cosin"),
-			tanButton = new JButton("tang"),
-			contanButton = new JButton("cotan"),
-			arcsinButton = new JButton("arcsin"),
-			arcCosButton = new JButton("arccos"),
-			arcTanButton = new JButton("arctan"),
-			arcCotanButton = new JButton("arccotan"),
-			logButton = new JButton("log"),
-			lnButton = new JButton("Ln"),
-			expButton = new JButton("e^x"),
-			expTenButton = new JButton("10^x"),
-			squareRootButton = new JButton("√x"),
-			powerButton = new JButton("x^y"),
-			factorialButton = new JButton("n!");
+		this.sinButton = new JButton("sin");
+		this.cosButton = new JButton("cosin");
+		this.tanButton = new JButton("tang");
+		this.contanButton = new JButton("cotan");
+		this.arcsinButton = new JButton("arcsin");
+		this.arcCosButton = new JButton("arccos");
+		this.arcTanButton = new JButton("arctan");
+		this.arcCotanButton = new JButton("arccotan");
+		this.logButton = new JButton("log");
+		this.lnButton = new JButton("Ln");
+		this.expButton = new JButton("e^x");
+		this.expTenButton = new JButton("10^x");
+		this.squareRootButton = new JButton("√x");
+		this.powerButton = new JButton("x^y");
+		this.factorialButton = new JButton("n!");
+
+		storeAllScientificButtons(
+			sinButton,
+			cosButton, 
+			tanButton,
+			contanButton,
+			arcsinButton,
+			arcCosButton,
+			arcTanButton,
+			arcCotanButton,
+			logButton,
+			lnButton,
+			expButton,
+			expTenButton,
+			squareRootButton,
+			powerButton,
+			factorialButton
+		);
 	
 		this.add(sinButton);
 		this.add(cosButton);
@@ -45,7 +84,74 @@ public class ScientificJPanel extends JPanel {
 		this.add(squareRootButton);
 		this.add(powerButton);
 		this.add(factorialButton);
-	
+	}
+
+	public JButton getSinButton() {
+		return sinButton;
+	}
+
+	public JButton getCosButton() {
+		return cosButton;
+	}
+
+	public JButton getTanButton() {
+		return tanButton;
+	}
+
+	public JButton getContanButton() {
+		return contanButton;
+	}
+
+	public JButton getArcsinButton() {
+		return arcsinButton;
+	}
+
+	public JButton getArcCosButton() {
+		return arcCosButton;
+	}
+
+	public JButton getArcTanButton() {
+		return arcTanButton;
+	}
+
+	public JButton getArcCotanButton() {
+		return arcCotanButton;
+	}
+
+	public JButton getLogButton() {
+		return logButton;
+	}
+
+	public JButton getLnButton() {
+		return lnButton;
+	}
+
+	public JButton getExpButton() {
+		return expButton;
+	}
+
+	public JButton getExpTenButton() {
+		return expTenButton;
+	}
+
+	public JButton getSquareRootButton() {
+		return squareRootButton;
+	}
+
+	public JButton getPowerButton() {
+		return powerButton;
+	}
+
+	public JButton getFactorialButton() {
+		return factorialButton;
+	}
+
+	private void storeAllScientificButtons(JButton... availableTriButtons) {
+		this.availableScientifcButtons.addAll(Arrays.asList(availableTriButtons));
+	}
+
+	public List<JButton> getAllAvailableScientificButtons() {
+		return availableScientifcButtons;
 	}
 	
 }
